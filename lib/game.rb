@@ -10,7 +10,7 @@ class Game
   end
 
   def play_turn(x, y)
-    board.set_value(x,y, @current_player.value)
+    board.set_value(x,y, current_player.value)
     switch_player
   end
 
