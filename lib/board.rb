@@ -5,11 +5,16 @@ class Board
   end
 
   def set_value(x, y, value)
-    @play_area[y][x].write_value(value)
+    available?(x, y) ? (@play_area[y][x].write_value(value)) : (raise "Cell taken")
   end
 
   def create_board
     Array.new(3) { Array.new(3) {Cell.new}}
   end
 
+  private
+
+  def available? (x, y)
+    @play_area[y][x].value == nil
+  end
 end

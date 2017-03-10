@@ -18,5 +18,11 @@ describe 'board' do
       board.set_value(2,1, "X")
       expect(board.play_area[1][2].value).to eq "X"
     end
+
+    it 'cannot update cell if it is taken' do
+      board = Board.new
+      board.set_value(0,0, "X")
+      expect{board.set_value(0,0, "X")}.to raise_error "Cell taken"
+    end
   end
 end
