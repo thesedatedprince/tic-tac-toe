@@ -4,10 +4,16 @@ class WinCalculator
   end
 
   def rows
+    tester = []
+    master_tester = []
     @board.play_area.each do |x|
-      won = true if (x.same_values?) && (!x.include?(nil))
-      p @board.play_area
+      x.each do |y|
+        tester.push y.value
+      end
+      master_tester.push tester
+      tester = []
     end
+    master_tester
   end
 
 
